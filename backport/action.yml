@@ -1,10 +1,10 @@
-name: The name of your action here
-description: Provide a description here
-author: Your name or organization here
+name: maintain-please-backport-action
+description: Automated backport pull requests creation
+author: tsuhama
 
 # Add your action's branding here. This will appear on the GitHub Marketplace.
 branding:
-  icon: heart
+  icon: skip-back
   color: red
 
 # Define your inputs here.
@@ -21,4 +21,4 @@ outputs:
 
 runs:
   using: node20
-  main: dist/index.js
+  main: ../dist/backport/index.js
