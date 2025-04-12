@@ -1,24 +1,22 @@
-name: maintain-please-backport-action
-description: Automated backport pull requests creation
-author: tsuhama
-
-# Add your action's branding here. This will appear on the GitHub Marketplace.
+name: 'maintain-please-backport-action'
+description: 'automated pull request creation for backporting bug and security fixes on stable version branches'
+author: 'tsuhama'
 branding:
   icon: skip-back
   color: red
-
-# Define your inputs here.
 inputs:
-  milliseconds:
-    description: Your input description here
+  token:
+    description: 'GitHub token for creating and grooming release PRs, defaults to using secrets.GITHUB_TOKEN'
+    required: false
+    default: ${{ github.token }}
+  stable-version-branch-prefix:
+    description: 'Prefix for stable version branch names, defaults to stable-'
+    required: false
+    default: 'stable-'
+  source-branch:
+    description: 'name of the source branch containing the fix which needs to be backported to stable version branches'
     required: true
-    default: '1000'
-
-# Define your outputs here.
-outputs:
-  time:
-    description: Your output description here
 
 runs:
-  using: node20
-  main: ../dist/backport/index.js
+  using: 'node20'
+  main: '../dist/backport/index.js'

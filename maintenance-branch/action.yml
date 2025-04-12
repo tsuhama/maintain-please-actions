@@ -1,24 +1,30 @@
-name: The name of your action here
-description: Provide a description here
-author: Your name or organization here
-
-# Add your action's branding here. This will appear on the GitHub Marketplace.
+name: 'release-please-please-me-action'
+description: 'automated maintenance of stable version branches'
+author: 'tsuhama'
 branding:
-  icon: heart
-  color: red
-
-# Define your inputs here.
+  icon: activity
+  color: yellow
 inputs:
-  milliseconds:
-    description: Your input description here
+  token:
+    description: 'GitHub token for creating and grooming release PRs, defaults to using secrets.GITHUB_TOKEN'
+    required: false
+    default: ${{ github.token }}
+  latest-release-version:
+    description: 'Latest release version to trigger the action with'
     required: true
-    default: '1000'
-
-# Define your outputs here.
-outputs:
-  time:
-    description: Your output description here
+  stable-version-branch-prefix:
+    description: 'Prefix for stable version branch names, defaults to stable-'
+    required: false
+    default: 'stable-'
+  minor-version-support-policy:
+    description: 'n-x policy for minor versions, defaults to n-2 including the n-2-hth release version'
+    required: false
+    default: '2'
+  major-version-support-policy:
+    description: 'n-x policy for major versions, defaults to n-1 including the n-1-hth release version'
+    required: false
+    default: '1'
 
 runs:
-  using: node20
-  main: ../dist/maintenance-branch/index.js
+  using: 'node20'
+  main: '../dist/maintenance-branch/index.js'
