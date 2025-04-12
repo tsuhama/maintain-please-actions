@@ -1,5 +1,5 @@
 import * as core from '@actions/core';
-import { createGitHubControl, createPrefixStableVersionMatcher, backportFixBranch } from '@tsuhama/release-please-please-me';
+import { createGitHubControl, createPrefixStableVersionMatcher, backportFixBranch } from '@tsuhama/maintain-please';
 export async function main() {
     const inputs = parseActionInputs();
     const git = createGitOperations(inputs);

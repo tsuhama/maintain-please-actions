@@ -5,7 +5,7 @@ import {
   createPrefixStableVersionMatcher,
   createNMinusRangeSupportPolicy,
   maintainStableVersionBranches
-} from '@tsuhama/release-please-please-me'
+} from '@tsuhama/maintain-please'
 
 export async function main() {
   const inputs = parseActionInputs()

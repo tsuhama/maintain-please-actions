@@ -4,7 +4,7 @@ import {
   createGitHubControl,
   createPrefixStableVersionMatcher,
   backportFixBranch
-} from '@tsuhama/release-please-please-me'
+} from '@tsuhama/maintain-please'
 
 export async function main() {
   const inputs = parseActionInputs()
