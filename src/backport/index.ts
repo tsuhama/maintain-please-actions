@@ -37,10 +37,8 @@ function createGitOperations(inputs: ActionInputs): GitControl {
   return createGitHubControl(repo, owner, 'main', inputs.token)
 }
 
-if (require.main === module) {
-  main().catch((err) => {
-    core.setFailed(
-      `release-please-please-me backport action failed: ${err.message}`
-    )
-  })
-}
+main().catch((err) => {
+  core.setFailed(
+    `release-please-please-me backport action failed: ${err.message}`
+  )
+})
