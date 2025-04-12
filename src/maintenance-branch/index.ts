@@ -52,3 +52,11 @@ function createGitOperations(inputs: ActionInputs): GitControl {
   const [owner, repo] = repoUrl.split('/')
   return createGitHubControl(repo, owner, 'main', inputs.token)
 }
+
+if (require.main === module) {
+  main().catch((err) => {
+    core.setFailed(
+      `release-please-please-me maintenance branch action failed: ${err.message}`
+    )
+  })
+}
