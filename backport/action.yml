@@ -1,12 +1,16 @@
 name: 'maintain-please-backport-action'
-description: 'automated pull request creation for backporting bug and security fixes on stable version branches'
+description:
+  'automated pull request creation for backporting bug and security fixes on
+  stable version branches'
 author: 'tsuhama'
 branding:
   icon: skip-back
   color: red
 inputs:
   token:
-    description: 'GitHub token for creating and grooming release PRs, defaults to using secrets.GITHUB_TOKEN'
+    description:
+      'GitHub token for creating and grooming release PRs, defaults to using
+      secrets.GITHUB_TOKEN'
     required: false
     default: ${{ github.token }}
   stable-version-branch-prefix:
@@ -14,7 +18,9 @@ inputs:
     required: false
     default: 'stable-'
   source-branch:
-    description: 'name of the source branch containing the fix which needs to be backported to stable version branches'
+    description:
+      'name of the source branch containing the fix which needs to be backported
+      to stable version branches'
     required: true
 
 runs:

@@ -6,7 +6,9 @@ branding:
   color: yellow
 inputs:
   token:
-    description: 'GitHub token for creating and grooming release PRs, defaults to using secrets.GITHUB_TOKEN'
+    description:
+      'GitHub token for creating and grooming release PRs, defaults to using
+      secrets.GITHUB_TOKEN'
     required: false
     default: ${{ github.token }}
   latest-release-version:
@@ -17,11 +19,15 @@ inputs:
     required: false
     default: 'stable-'
   minor-version-support-policy:
-    description: 'n-x policy for minor versions, defaults to n-2 including the n-2-hth release version'
+    description:
+      'n-x policy for minor versions, defaults to n-2 including the n-2-hth
+      release version'
     required: false
     default: '2'
   major-version-support-policy:
-    description: 'n-x policy for major versions, defaults to n-1 including the n-1-hth release version'
+    description:
+      'n-x policy for major versions, defaults to n-1 including the n-1-hth
+      release version'
     required: false
     default: '1'
 

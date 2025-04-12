@@ -11,6 +11,6 @@
     "__tests__",
     "src",
     "eslint.config.mjs",
-    "jest.config.js",
+    "jest.config.js"
   ]
 }
