@@ -1,6 +1,6 @@
 import { RestoreFn } from 'mocked-env'
 import mockedEnv from 'mocked-env'
-import { main } from './index.js'
+import { main } from './backport'
 import nock from 'nock'
 import { beforeEach, jest, afterEach } from '@jest/globals'
 

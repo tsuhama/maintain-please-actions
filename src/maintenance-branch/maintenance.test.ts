@@ -1,7 +1,7 @@
 // see https://github.com/microsoft/TypeScript/issues/52086
 import nock from 'nock'
 import mockedEnv, { RestoreFn } from 'mocked-env'
-import { main } from './index.js'
+import { main } from './maintenance'
 import { afterEach, beforeEach } from '@jest/globals'
 
 const mockedEnvFun =
