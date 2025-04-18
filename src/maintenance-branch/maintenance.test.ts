@@ -2,18 +2,23 @@
 import nock from 'nock'
 import mockedEnv, { RestoreFn } from 'mocked-env'
 import { main } from './index.js'
-import { afterEach } from '@jest/globals'
+import { afterEach, beforeEach } from '@jest/globals'
 
 const mockedEnvFun =
   mockedEnv as unknown as (typeof import('mocked-env'))['default']
 const defaultRepository = 'fakeOwner/fakeRepo'
 
-nock.disableNetConnect()
-
 describe('maintenance', () => {
   let restoreEnv: RestoreFn | null
+  beforeEach(() => {
+    nock.disableNetConnect()
+    if (!nock.isActive()) {
+      nock.activate()
+    }
+  })
   afterEach(() => {
     nock.cleanAll()
+    nock.restore()
     if (restoreEnv) {
       restoreEnv()
       restoreEnv = null

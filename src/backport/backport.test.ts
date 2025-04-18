@@ -2,20 +2,25 @@ import { RestoreFn } from 'mocked-env'
 import mockedEnv from 'mocked-env'
 import { main } from './index.js'
 import nock from 'nock'
-import { jest } from '@jest/globals'
+import { beforeEach, jest, afterEach } from '@jest/globals'
 
 // see https://github.com/microsoft/TypeScript/issues/52086
 const mockedEnvFun =
   mockedEnv as unknown as (typeof import('mocked-env'))['default']
 const defaultRepository = 'fakeOwner/fakeRepo'
 
-nock.disableNetConnect()
-
 describe('backport', () => {
   let restoreEnv: RestoreFn | null
+  beforeEach(() => {
+    nock.disableNetConnect()
+    if (!nock.isActive()) {
+      nock.activate()
+    }
+  })
   afterEach(() => {
     jest.resetAllMocks()
     nock.cleanAll()
+    nock.restore()
     if (restoreEnv) {
       restoreEnv()
       restoreEnv = null
