@@ -26,6 +26,7 @@ export default {
   resolver: 'ts-jest-resolver',
   testEnvironment: 'node',
   testMatch: ['**/*.test.ts'],
+  transformIgnorePatterns: ['node_modules/(?!(@tsuhama/maintain-please)/)'],
   testPathIgnorePatterns: ['/dist/', '/node_modules/'],
   transform: {
     '^.+\\.ts$': [

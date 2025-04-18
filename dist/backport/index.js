@@ -22,4 +22,5 @@ function createGitOperations(inputs) {
 }
 main().catch((err) => {
     core.setFailed(`release-please-please-me backport action failed: ${err.message}`);
+    core.setOutput('p')
 });
