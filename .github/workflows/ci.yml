@@ -7,8 +7,8 @@ permissions:
   contents: read
 
 jobs:
-  test-typescript:
-    name: TypeScript Tests
+  build:
+    name: Build
     runs-on: ubuntu-latest
 
     steps:
