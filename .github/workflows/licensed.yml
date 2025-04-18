@@ -5,16 +5,7 @@
 name: Licensed
 
 on:
-  # Uncomment the below lines to run this workflow on pull requests and pushes
-  # to the default branch. This is useful for checking licenses before merging
-  # changes into the default branch.
-  # pull_request:
-  #   branches:
-  #     - main
-  # push:
-  #   branches:
-  #     - main
-  workflow_dispatch:
+  push:
 
 permissions:
   contents: write
@@ -49,26 +40,7 @@ jobs:
       - uses: licensee/setup-licensed@v1.3.2
         with:
           version: 4.x
-          github_token: ${{ secrets.GITHUB_TOKEN }}
 
-      # If this is a workflow_dispatch event, update the cached licenses.
-      - if: ${{ github.event_name == 'workflow_dispatch' }}
-        name: Update Licenses
-        id: update-licenses
-        run: licensed cache
-
-      # Then, commit the updated licenses to the repository.
-      - if: ${{ github.event_name == 'workflow_dispatch' }}
-        name: Commit Licenses
-        id: commit-licenses
-        run: |
-          git config --local user.email "licensed-ci@users.noreply.github.com"
-          git config --local user.name "licensed-ci"
-          git add .
-          git commit -m "Auto-update license files"
-          git push
-
-      # Last, check the status of the cached licenses.
       - name: Check Licenses
         id: check-licenses
         run: licensed status
