@@ -27,6 +27,12 @@ jobs:
           node-version-file: .node-version
           cache: npm
 
+      - name: NPM Login
+        id: npm-login
+        run:
+          npm set
+          "//npm.pkg.github.com/:_authToken=${{secrets.NPM_REGISTRY_GITHUB_TOKEN}}"
+
       - name: Install Dependencies
         id: npm-ci
         run: npm ci
