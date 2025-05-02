@@ -68,7 +68,7 @@ describe('maintenance', () => {
       .get('/repos/fakeOwner/fakeRepo/git/ref/heads%2Fstable-4.8')
       .reply(404)
     nock('https://api.github.com')
-      .get(`/repos/fakeOwner/fakeRepo/git/ref/tags%2F4.8.0`)
+      .get(`/repos/fakeOwner/fakeRepo/git/ref/tags%2Fv4.8.0`)
       .reply(200, {
         object: {
           sha: 'c5b97d5ae6c19d5c5df71a34c7fbeeda2479ccbc'
